@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_learning_showcase/pages/smart_home_ui.dart';
+import 'package:flutter_ui_learning_showcase/pages/smart_home_ui/smart_home_ui.dart';
 import 'package:go_router/go_router.dart';
 
 void main() {
