@@ -16,14 +16,14 @@ class MyApp extends StatelessWidget {
         GoRoute(
           path: '/',
           builder: (context, state) =>
-              const MyHomePage(title: 'Flutter Demo Home Page'),
+              const MyHomePage(title: 'UI Learning Showcase'),
         ),
         GoRoute(
-          path: '/page1',
+          path: '/smartHomeUI',
           builder: (context, state) => const SmartHomeUi(),
         ),
         GoRoute(
-          path: '/page2',
+          path: '/smartHomeUI',
           builder: (context, state) => const SmartHomeUi(),
         ),
       ],
@@ -31,70 +31,56 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp.router(
       routerConfig: _router,
-      title: 'Flutter Demo',
+      title: 'UI Learning Showcase',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
         useMaterial3: true,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.teal,
+            foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+        ),
       ),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key, required this.title});
 
   final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: Text(title),
       ),
       body: Center(
-        child: Column(
+        child: Row(
+          spacing: 10,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            ElevatedButton(
+              onPressed: () {
+                context.go('/smartHomeUI');
+              },
+              child: const Text('Smart Home UI'),
             ),
             ElevatedButton(
               onPressed: () {
-                context.go('/page1');
+                context.go('/smartHomeUI');
               },
-              child: const Text('Go to Page 1'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                context.go('/page2');
-              },
-              child: const Text('Go to Page 2'),
+              child: const Text('Smart Home UI'),
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
