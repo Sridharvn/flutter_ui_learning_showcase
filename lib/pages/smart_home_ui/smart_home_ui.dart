@@ -29,7 +29,7 @@ class _SmartHomeUiState extends State<SmartHomeUi> {
     }
 
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.grey[200],
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,7 +77,14 @@ class _SmartHomeUiState extends State<SmartHomeUi> {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 25,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+              child: Divider(
+                color: Colors.grey,
+                thickness: 1,
+              ),
             ),
             // Smart devices + grid
             Padding(
@@ -87,6 +94,7 @@ class _SmartHomeUiState extends State<SmartHomeUi> {
             Expanded(
                 child: GridView.builder(
               itemCount: mySmartDevices.length,
+              physics: NeverScrollableScrollPhysics(),
               padding: EdgeInsets.all(25),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, childAspectRatio: 1 / 1.3),
