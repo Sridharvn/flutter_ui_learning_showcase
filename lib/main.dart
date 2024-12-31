@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_learning_showcase/pages/smart_home_ui.dart';
+import 'package:go_router/go_router.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,16 +9,33 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    final GoRouter _router = GoRouter(
+      routes: [
+        GoRoute(
+          path: '/',
+          builder: (context, state) =>
+              const MyHomePage(title: 'Flutter Demo Home Page'),
+        ),
+        GoRoute(
+          path: '/page1',
+          builder: (context, state) => const SmartHomeUi(),
+        ),
+        GoRoute(
+          path: '/page2',
+          builder: (context, state) => const SmartHomeUi(),
+        ),
+      ],
+    );
+
+    return MaterialApp.router(
+      routerConfig: _router,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -57,6 +76,18 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            ElevatedButton(
+              onPressed: () {
+                context.go('/page1');
+              },
+              child: const Text('Go to Page 1'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                context.go('/page2');
+              },
+              child: const Text('Go to Page 2'),
+            ),
           ],
         ),
       ),
@@ -64,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }
