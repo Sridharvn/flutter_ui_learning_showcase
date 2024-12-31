@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +24,9 @@ class SmartDeviceBox extends StatelessWidget {
           color: Colors.grey[200],
           borderRadius: BorderRadius.circular(24),
         ),
+        padding: EdgeInsets.symmetric(vertical: 25),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             // icon
             Image.asset(
@@ -32,8 +36,18 @@ class SmartDeviceBox extends StatelessWidget {
             // smart device name + switch
             Row(
               children: [
-                Text(smartDeviceName),
-                CupertinoSwitch(value: false, onChanged: (value) {})
+                Expanded(
+                    child: Padding(
+                  padding: const EdgeInsets.only(left: 25.0),
+                  child: Text(
+                    smartDeviceName,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  ),
+                )),
+                Transform.rotate(
+                    angle: pi / 2,
+                    child:
+                        CupertinoSwitch(value: powerOn, onChanged: (value) {}))
               ],
             )
           ],
