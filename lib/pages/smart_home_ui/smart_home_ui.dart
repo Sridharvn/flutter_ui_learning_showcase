@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_learning_showcase/pages/smart_home_ui/smart_device_box.dart';
 
-class SmartHomeUi extends StatelessWidget {
+class SmartHomeUi extends StatefulWidget {
   const SmartHomeUi({super.key});
 
+  @override
+  State<SmartHomeUi> createState() => _SmartHomeUiState();
+}
+
+class _SmartHomeUiState extends State<SmartHomeUi> {
   @override
   Widget build(BuildContext context) {
     final verticalPadding = 25.0;
@@ -15,6 +20,14 @@ class SmartHomeUi extends StatelessWidget {
       ['Smart TV', "lib/assets/smart_home_ui/smart-tv.png", true],
       ['Smart Fan', "lib/assets/smart_home_ui/fan.png", true],
     ];
+    // power button switched
+    void powerSwitchChanged(bool value, int index) {
+      setState(() {
+        mySmartDevices[index][2] = value;
+        print(mySmartDevices);
+      });
+    }
+
     return Scaffold(
       backgroundColor: Colors.grey,
       body: SafeArea(
@@ -79,6 +92,7 @@ class SmartHomeUi extends StatelessWidget {
                   smartDeviceName: mySmartDevices[index][0],
                   iconPath: mySmartDevices[index][1],
                   powerOn: mySmartDevices[index][2],
+                  onChanged: (value) => powerSwitchChanged(value, index),
                 );
               },
             ))
