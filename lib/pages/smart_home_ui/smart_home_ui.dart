@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_learning_showcase/pages/smart_home_ui/smart_device_box.dart';
 
 class SmartHomeUi extends StatelessWidget {
   const SmartHomeUi({super.key});
@@ -7,6 +8,13 @@ class SmartHomeUi extends StatelessWidget {
   Widget build(BuildContext context) {
     final verticalPadding = 25.0;
     final horizontalPadding = 40.0;
+    List mySmartDevices = [
+      // [smartDeviceName,iconPath,powerStatus]
+      ['Smart Light', "lib/assets/smart_home_ui/light-bulb.png", true],
+      ['Smart AC', "lib/assets/smart_home_ui/air-conditioner.png", true],
+      ['Smart TV', "lib/assets/smart_home_ui/smart-tv.png", true],
+      ['Smart Fan', "lib/assets/smart_home_ui/fan.png", true],
+    ];
     return Scaffold(
       backgroundColor: Colors.grey,
       body: SafeArea(
@@ -62,10 +70,15 @@ class SmartHomeUi extends StatelessWidget {
             ),
             Expanded(
                 child: GridView.builder(
+              itemCount: mySmartDevices.length,
               gridDelegate:
                   SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
               itemBuilder: (context, index) {
-                return Container();
+                return SmartDeviceBox(
+                  smartDeviceName: mySmartDevices[index][0],
+                  iconPath: mySmartDevices[index][1],
+                  powerOn: mySmartDevices[index][2],
+                );
               },
             ))
           ],
