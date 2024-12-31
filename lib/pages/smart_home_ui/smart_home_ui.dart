@@ -16,7 +16,7 @@ class _SmartHomeUiState extends State<SmartHomeUi> {
     List mySmartDevices = [
       // [smartDeviceName,iconPath,powerStatus]
       ['Smart Light', "lib/assets/smart_home_ui/light-bulb.png", true],
-      ['Smart AC', "lib/assets/smart_home_ui/air-conditioner.png", true],
+      ['Smart AC', "lib/assets/smart_home_ui/air-conditioner.png", false],
       ['Smart TV', "lib/assets/smart_home_ui/smart-tv.png", true],
       ['Smart Fan', "lib/assets/smart_home_ui/fan.png", true],
     ];
@@ -65,7 +65,10 @@ class _SmartHomeUiState extends State<SmartHomeUi> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Welcome Home"),
+                  Text(
+                    "Welcome Home",
+                    style: TextStyle(fontSize: 20, color: Colors.grey),
+                  ),
                   Text(
                     "SRIDHAR",
                     style: TextStyle(fontSize: 40),
