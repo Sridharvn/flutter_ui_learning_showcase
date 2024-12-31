@@ -71,6 +71,7 @@ class SmartHomeUi extends StatelessWidget {
             Expanded(
                 child: GridView.builder(
               itemCount: mySmartDevices.length,
+              padding: EdgeInsets.all(25),
               gridDelegate:
                   SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
               itemBuilder: (context, index) {

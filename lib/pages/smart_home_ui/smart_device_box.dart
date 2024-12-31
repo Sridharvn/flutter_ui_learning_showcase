@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SmartDeviceBox extends StatelessWidget {
@@ -14,13 +15,29 @@ class SmartDeviceBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          // icon
-          Image.asset(iconPath)
-          // smart device name + switch
-        ],
+    return Padding(
+      padding: const EdgeInsets.all(15.0),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.grey[200],
+          borderRadius: BorderRadius.circular(24),
+        ),
+        child: Column(
+          children: [
+            // icon
+            Image.asset(
+              iconPath,
+              height: 65,
+            ),
+            // smart device name + switch
+            Row(
+              children: [
+                Text(smartDeviceName),
+                CupertinoSwitch(value: false, onChanged: (value) {})
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
