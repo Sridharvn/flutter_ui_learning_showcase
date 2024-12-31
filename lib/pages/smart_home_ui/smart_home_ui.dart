@@ -24,7 +24,8 @@ class _SmartHomeUiState extends State<SmartHomeUi> {
     void powerSwitchChanged(bool value, int index) {
       setState(() {
         mySmartDevices[index][2] = value;
-        print(mySmartDevices);
+        print('Power switch changed for device $index: $value');
+        print(mySmartDevices[index][2]);
       });
     }
 
