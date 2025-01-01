@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_learning_showcase/pages/mental_health_app_ui/emoticon_face.dart';
 import 'package:flutter_ui_learning_showcase/widgets/UniversalFABToHome.dart';
 
 class MentalHealthAppHomeUi extends StatefulWidget {
@@ -101,6 +102,20 @@ class _MentalHealthAppHomeUiState extends State<MentalHealthAppHomeUi> {
               SizedBox(
                 height: 25,
               ),
+              // 4 different faces
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  // bad
+                  EmoticonFace(emoticonFace: '☹️'),
+                  // fine
+                  EmoticonFace(emoticonFace: '😑'),
+                  // well
+                  EmoticonFace(emoticonFace: '🙂'),
+                  // excellent
+                  EmoticonFace(emoticonFace: '😊')
+                ],
+              )
             ],
           ),
         ),
