@@ -54,7 +54,53 @@ class _MentalHealthAppHomeUiState extends State<MentalHealthAppHomeUi> {
                     ),
                   )
                 ],
-              )
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              // Search Bar
+              Container(
+                decoration: BoxDecoration(
+                    color: Colors.blue[600],
+                    borderRadius: BorderRadius.circular(12)),
+                padding: EdgeInsets.all(12),
+                child: Row(
+                  spacing: 5,
+                  children: [
+                    Icon(
+                      Icons.search,
+                      color: Colors.white,
+                    ),
+                    Text(
+                      "Search",
+                      style: TextStyle(color: Colors.white),
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 25,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'How Do You Feel?',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Icon(
+                    Icons.more_horiz,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 25,
+              ),
             ],
           ),
         ),
