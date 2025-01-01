@@ -15,121 +15,148 @@ class _MentalHealthAppHomeUiState extends State<MentalHealthAppHomeUi> {
     return Scaffold(
       floatingActionButton: const UniversalFABToHome(),
       backgroundColor: Colors.blue[800],
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home")
+        ],
+        fixedColor: Colors.blue[800],
+      ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(25.0),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: Column(
+          children: [
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 25.0, vertical: 25),
+              child: Column(
                 children: [
-                  // Hi Sridhar
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        'Hi Sridhar',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold),
+                      // Hi Sridhar
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Hi Sridhar',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text(
+                            "31 Aug 1999",
+                            style: TextStyle(color: Colors.blue[100]),
+                          )
+                        ],
                       ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        "31 Aug 1999",
-                        style: TextStyle(color: Colors.blue[100]),
+                      // Notification
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.blue[600],
+                            borderRadius: BorderRadius.circular(12)),
+                        padding: EdgeInsets.all(12),
+                        child: Icon(
+                          Icons.notifications,
+                          color: Colors.white,
+                        ),
                       )
                     ],
                   ),
-                  // Notification
+                  SizedBox(
+                    height: 20,
+                  ),
+                  // Search Bar
                   Container(
                     decoration: BoxDecoration(
                         color: Colors.blue[600],
                         borderRadius: BorderRadius.circular(12)),
                     padding: EdgeInsets.all(12),
-                    child: Icon(
-                      Icons.notifications,
-                      color: Colors.white,
+                    child: Row(
+                      spacing: 5,
+                      children: [
+                        Icon(
+                          Icons.search,
+                          color: Colors.white,
+                        ),
+                        Text(
+                          "Search",
+                          style: TextStyle(color: Colors.white),
+                        )
+                      ],
                     ),
-                  )
+                  ),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'How Do You Feel?',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Icon(
+                        Icons.more_horiz,
+                        color: Colors.white,
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  // 4 different faces
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      // bad
+                      EmoticonFace(
+                        emoticonFace: '☹️',
+                        subTitle: 'Bad',
+                      ),
+                      // fine
+                      EmoticonFace(
+                        emoticonFace: '😑',
+                        subTitle: 'Fine',
+                      ),
+                      // well
+                      EmoticonFace(
+                        emoticonFace: '🙂',
+                        subTitle: 'Well',
+                      ),
+                      // excellent
+                      EmoticonFace(
+                        emoticonFace: '😊',
+                        subTitle: 'Excellent',
+                      )
+                    ],
+                  ),
                 ],
               ),
-              SizedBox(
-                height: 20,
-              ),
-              // Search Bar
-              Container(
+            ),
+            SizedBox(
+              height: 25,
+            ),
+            // White Container
+            Expanded(
+              child: Container(
                 decoration: BoxDecoration(
-                    color: Colors.blue[600],
-                    borderRadius: BorderRadius.circular(12)),
-                padding: EdgeInsets.all(12),
-                child: Row(
-                  spacing: 5,
-                  children: [
-                    Icon(
-                      Icons.search,
-                      color: Colors.white,
-                    ),
-                    Text(
-                      "Search",
-                      style: TextStyle(color: Colors.white),
-                    )
-                  ],
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(25),
+                      topRight: Radius.circular(25)),
+                  color: Colors.white,
                 ),
               ),
-              SizedBox(
-                height: 25,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'How Do You Feel?',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Icon(
-                    Icons.more_horiz,
-                    color: Colors.white,
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 25,
-              ),
-              // 4 different faces
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  // bad
-                  EmoticonFace(
-                    emoticonFace: '☹️',
-                    subTitle: 'Bad',
-                  ),
-                  // fine
-                  EmoticonFace(
-                    emoticonFace: '😑',
-                    subTitle: 'Fine',
-                  ),
-                  // well
-                  EmoticonFace(
-                    emoticonFace: '🙂',
-                    subTitle: 'Well',
-                  ),
-                  // excellent
-                  EmoticonFace(
-                    emoticonFace: '😊',
-                    subTitle: 'Excellent',
-                  )
-                ],
-              )
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );
