@@ -152,7 +152,44 @@ class _MentalHealthAppHomeUiState extends State<MentalHealthAppHomeUi> {
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(25),
                       topRight: Radius.circular(25)),
-                  color: Colors.white,
+                  color: Colors.grey[300],
+                ),
+                padding: EdgeInsets.all(25),
+                child: Center(
+                  child: Column(
+                    children: [
+                      // Exercise heading
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Exercises",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          ),
+                          Icon(Icons.more_horiz),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      // List view for Exercises
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(16)),
+                        child: ListTile(
+                          leading: Icon(
+                            Icons.favorite,
+                          ),
+                          title: Text("Speaking Skills"),
+                          subtitle: Text("15 Exercises"),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             )
