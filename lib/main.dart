@@ -57,9 +57,9 @@ class MyHomePage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                context.go('/smartHomeUI');
+                context.go('/mentalHealthAppUI');
               },
-              child: const Text('Smart Home UI'),
+              child: const Text('Mental Health App UI'),
             ),
           ],
         ),
