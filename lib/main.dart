@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_learning_showcase/pages/smart_home_ui/smart_home_ui.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_ui_learning_showcase/app_routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,26 +11,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final GoRouter _router = GoRouter(
-      routes: [
-        GoRoute(
-          path: '/',
-          builder: (context, state) =>
-              const MyHomePage(title: 'UI Learning Showcase'),
-        ),
-        GoRoute(
-          path: '/smartHomeUI',
-          builder: (context, state) => const SmartHomeUi(),
-        ),
-        GoRoute(
-          path: '/smartHomeUI',
-          builder: (context, state) => const SmartHomeUi(),
-        ),
-      ],
-    );
-
     return MaterialApp.router(
-      routerConfig: _router,
+      routerConfig: appRouter,
       title: 'UI Learning Showcase',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
