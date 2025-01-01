@@ -187,15 +187,15 @@ class _MentalHealthAppHomeUiState extends State<MentalHealthAppHomeUi> {
                         ),
                         ExerciseTile(
                           icon: Icons.person,
-                          exerciseName: "Speaking Skills",
-                          numberOfExercises: "17",
+                          exerciseName: "Listening Skills",
+                          numberOfExercises: "20",
                           Color: Colors.deepOrange,
                         ),
                         ExerciseTile(
                           icon: Icons.favorite,
-                          exerciseName: "Speaking Skills",
-                          numberOfExercises: "17",
-                          Color: Colors.orange,
+                          exerciseName: "Writing Skills",
+                          numberOfExercises: "43",
+                          Color: Colors.pink,
                         ),
                       ]))
                     ],
