@@ -177,7 +177,27 @@ class _MentalHealthAppHomeUiState extends State<MentalHealthAppHomeUi> {
                         height: 20,
                       ),
                       // List view for Exercises
-                      Expanded(child: ListView(children: [ExerciseTile()]))
+                      Expanded(
+                          child: ListView(children: [
+                        ExerciseTile(
+                          icon: Icons.favorite,
+                          exerciseName: "Speaking Skills",
+                          numberOfExercises: "17",
+                          Color: Colors.orange,
+                        ),
+                        ExerciseTile(
+                          icon: Icons.person,
+                          exerciseName: "Speaking Skills",
+                          numberOfExercises: "17",
+                          Color: Colors.deepOrange,
+                        ),
+                        ExerciseTile(
+                          icon: Icons.favorite,
+                          exerciseName: "Speaking Skills",
+                          numberOfExercises: "17",
+                          Color: Colors.orange,
+                        ),
+                      ]))
                     ],
                   ),
                 ),
