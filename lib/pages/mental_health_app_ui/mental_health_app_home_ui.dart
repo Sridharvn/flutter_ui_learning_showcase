@@ -177,17 +177,51 @@ class _MentalHealthAppHomeUiState extends State<MentalHealthAppHomeUi> {
                       ),
                       // List view for Exercises
                       Container(
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(16)),
-                        child: ListTile(
-                          leading: Icon(
-                            Icons.favorite,
-                          ),
-                          title: Text("Speaking Skills"),
-                          subtitle: Text("15 Exercises"),
-                        ),
-                      )
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(16)),
+                          padding: EdgeInsets.all(16),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                spacing: 8,
+                                children: [
+                                  Container(
+                                      decoration: BoxDecoration(
+                                          color: Colors.orange,
+                                          borderRadius:
+                                              BorderRadius.circular(16)),
+                                      padding: EdgeInsets.all(16),
+                                      child: Icon(
+                                        Icons.favorite,
+                                        color: Colors.white,
+                                      )),
+                                  Column(
+                                    spacing: 5,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Speaking Skills",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16),
+                                      ),
+                                      Text(
+                                        "15 Exercises",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 14,
+                                            color: Colors.grey),
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              Icon(Icons.more_horiz)
+                            ],
+                          ))
                     ],
                   ),
                 ),
