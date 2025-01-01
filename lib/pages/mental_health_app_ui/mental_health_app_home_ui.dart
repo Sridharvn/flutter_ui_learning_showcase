@@ -107,13 +107,25 @@ class _MentalHealthAppHomeUiState extends State<MentalHealthAppHomeUi> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   // bad
-                  EmoticonFace(emoticonFace: '☹️'),
+                  EmoticonFace(
+                    emoticonFace: '☹️',
+                    subTitle: 'Bad',
+                  ),
                   // fine
-                  EmoticonFace(emoticonFace: '😑'),
+                  EmoticonFace(
+                    emoticonFace: '😑',
+                    subTitle: 'Fine',
+                  ),
                   // well
-                  EmoticonFace(emoticonFace: '🙂'),
+                  EmoticonFace(
+                    emoticonFace: '🙂',
+                    subTitle: 'Well',
+                  ),
                   // excellent
-                  EmoticonFace(emoticonFace: '😊')
+                  EmoticonFace(
+                    emoticonFace: '😊',
+                    subTitle: 'Excellent',
+                  )
                 ],
               )
             ],
