@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_learning_showcase/pages/smart_home_ui/smart_device_box.dart';
+import 'package:flutter_ui_learning_showcase/widgets/UniversalFABToHome.dart';
 
 class SmartHomeUi extends StatefulWidget {
   const SmartHomeUi({super.key});
@@ -32,6 +33,7 @@ class _SmartHomeUiState extends State<SmartHomeUi> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: const UniversalFABToHome(), // Add this line
       backgroundColor: Colors.grey[200],
       body: SafeArea(
         child: Column(
