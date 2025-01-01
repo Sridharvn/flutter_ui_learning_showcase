@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_learning_showcase/pages/mental_health_app_ui/emoticon_face.dart';
+import 'package:flutter_ui_learning_showcase/pages/mental_health_app_ui/exercise_tile.dart';
 import 'package:flutter_ui_learning_showcase/widgets/UniversalFABToHome.dart';
 
 class MentalHealthAppHomeUi extends StatefulWidget {
@@ -176,52 +177,7 @@ class _MentalHealthAppHomeUiState extends State<MentalHealthAppHomeUi> {
                         height: 20,
                       ),
                       // List view for Exercises
-                      Container(
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(16)),
-                          padding: EdgeInsets.all(16),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                spacing: 8,
-                                children: [
-                                  Container(
-                                      decoration: BoxDecoration(
-                                          color: Colors.orange,
-                                          borderRadius:
-                                              BorderRadius.circular(16)),
-                                      padding: EdgeInsets.all(16),
-                                      child: Icon(
-                                        Icons.favorite,
-                                        color: Colors.white,
-                                      )),
-                                  Column(
-                                    spacing: 5,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Speaking Skills",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 16),
-                                      ),
-                                      Text(
-                                        "15 Exercises",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 14,
-                                            color: Colors.grey),
-                                      )
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              Icon(Icons.more_horiz)
-                            ],
-                          ))
+                      Expanded(child: ListView(children: [ExerciseTile()]))
                     ],
                   ),
                 ),
