@@ -10,8 +10,11 @@ class UniversalFABToHome extends StatelessWidget {
       onPressed: () {
         context.go('/');
       },
-      child: const Icon(Icons.home),
       backgroundColor: Colors.teal,
+      child: const Icon(
+        Icons.home,
+        color: Colors.white,
+      ),
     );
   }
 }
