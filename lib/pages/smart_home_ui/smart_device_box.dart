@@ -7,14 +7,15 @@ class SmartDeviceBox extends StatelessWidget {
   final String smartDeviceName;
   final String iconPath;
   final bool powerOn;
-  final void Function(bool)? onChanged;
+  final void Function(bool) onChanged;
 
-  const SmartDeviceBox(
-      {super.key,
-      required this.smartDeviceName,
-      required this.iconPath,
-      required this.powerOn,
-      required this.onChanged});
+  const SmartDeviceBox({
+    super.key,
+    required this.smartDeviceName,
+    required this.iconPath,
+    required this.powerOn,
+    required this.onChanged,
+  });
 
   @override
   Widget build(BuildContext context) {

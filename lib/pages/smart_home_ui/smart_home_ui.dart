@@ -9,26 +9,28 @@ class SmartHomeUi extends StatefulWidget {
 }
 
 class _SmartHomeUiState extends State<SmartHomeUi> {
+  final double verticalPadding = 25.0;
+  final double horizontalPadding = 40.0;
+
+  List<List<dynamic>> mySmartDevices = [
+    // [smartDeviceName, iconPath, powerStatus]
+    ['Smart Light', "lib/assets/smart_home_ui/light-bulb.png", true],
+    ['Smart AC', "lib/assets/smart_home_ui/air-conditioner.png", false],
+    ['Smart TV', "lib/assets/smart_home_ui/smart-tv.png", true],
+    ['Smart Fan', "lib/assets/smart_home_ui/fan.png", true],
+  ];
+
+  // Power button switch handler
+  void powerSwitchChanged(bool value, int index) {
+    setState(() {
+      mySmartDevices[index][2] = value;
+      print('Power switch changed for device $index: $value');
+      print(mySmartDevices);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    final verticalPadding = 25.0;
-    final horizontalPadding = 40.0;
-    List mySmartDevices = [
-      // [smartDeviceName,iconPath,powerStatus]
-      ['Smart Light', "lib/assets/smart_home_ui/light-bulb.png", true],
-      ['Smart AC', "lib/assets/smart_home_ui/air-conditioner.png", false],
-      ['Smart TV', "lib/assets/smart_home_ui/smart-tv.png", true],
-      ['Smart Fan', "lib/assets/smart_home_ui/fan.png", true],
-    ];
-    // power button switched
-    void powerSwitchChanged(bool value, int index) {
-      setState(() {
-        mySmartDevices[index][2] = value;
-        print('Power switch changed for device $index: $value');
-        print(mySmartDevices[index][2]);
-      });
-    }
-
     return Scaffold(
       backgroundColor: Colors.grey[200],
       body: SafeArea(
@@ -42,25 +44,23 @@ class _SmartHomeUiState extends State<SmartHomeUi> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // menu icon
+                  // Menu icon
                   Image.asset(
                     'lib/assets/smart_home_ui/menu.png',
                     height: 45,
                     color: Colors.grey[800],
                   ),
-                  // account icon
+                  // Account icon
                   Icon(
                     Icons.person,
                     size: 45,
                     color: Colors.grey[800],
-                  )
+                  ),
                 ],
               ),
             ),
-            SizedBox(
-              height: 20,
-            ),
-            // welcome home Sridhar
+            SizedBox(height: 20),
+            // Welcome home message
             Padding(
               padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
               child: Column(
@@ -77,9 +77,7 @@ class _SmartHomeUiState extends State<SmartHomeUi> {
                 ],
               ),
             ),
-            SizedBox(
-              height: 25,
-            ),
+            SizedBox(height: 25),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
               child: Divider(
@@ -87,27 +85,28 @@ class _SmartHomeUiState extends State<SmartHomeUi> {
                 thickness: 1,
               ),
             ),
-            // Smart devices + grid
+            // Smart devices label
             Padding(
               padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
               child: Text("Smart Devices"),
             ),
             Expanded(
-                child: GridView.builder(
-              itemCount: mySmartDevices.length,
-              physics: NeverScrollableScrollPhysics(),
-              padding: EdgeInsets.all(25),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, childAspectRatio: 1 / 1.3),
-              itemBuilder: (context, index) {
-                return SmartDeviceBox(
-                  smartDeviceName: mySmartDevices[index][0],
-                  iconPath: mySmartDevices[index][1],
-                  powerOn: mySmartDevices[index][2],
-                  onChanged: (value) => powerSwitchChanged(value, index),
-                );
-              },
-            ))
+              child: GridView.builder(
+                itemCount: mySmartDevices.length,
+                physics: NeverScrollableScrollPhysics(),
+                padding: EdgeInsets.all(25),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2, childAspectRatio: 1 / 1.3),
+                itemBuilder: (context, index) {
+                  return SmartDeviceBox(
+                    smartDeviceName: mySmartDevices[index][0],
+                    iconPath: mySmartDevices[index][1],
+                    powerOn: mySmartDevices[index][2],
+                    onChanged: (value) => powerSwitchChanged(value, index),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
